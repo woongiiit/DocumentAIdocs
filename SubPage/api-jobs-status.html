@@ -3,37 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GET /api/v1/jobs/{id}/download</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>GET /api/v1/jobs/{id}/status</title>
+    <link rel="stylesheet" href="../styles.css" />
   </head>
   <body>
-    <header class="site-header" aria-label="&#49345;&#45800;&#32;&#54756;&#45908;">
+    <header class="site-header" aria-label="Header">
       <h1 class="site-title">DocumentAI docs</h1>
     </header>
     <main class="content-area" aria-label="API detail">
-      <aside class="side-nav" aria-label="&#51340;&#52769;&#32;&#45348;&#48708;&#44172;&#51060;&#49496;">
+      <aside class="side-nav" aria-label="Side navigation">
         <nav>
           <ul class="nav-list">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="../index.html">Home</a></li>
             <li><a href="#">Getting Started</a></li>
-            <li class="active"><a href="api-reference.html">API Reference</a></li>
+            <li class="active" href="api-reference.html">API Reference</a></li>
           </ul>
         </nav>
       </aside>
       <section class="content-panel" aria-label="Main content">
         <div class="content-inner">
-          <h2 class="api-detail-title">&#55;&#32;&#44208;&#44284;&#32;&#47532;&#54252;&#53944;&#32;&#45796;&#50868;&#47196;&#46300;&#32;&#40;&#68;&#111;&#119;&#110;&#108;&#111;&#97;&#100;&#41;</h2>
+          <h2 class="api-detail-title">&#54;&#32;&#51089;&#50629;&#32;&#49345;&#53468;&#32;&#51312;&#54924;&#32;&#40;&#83;&#116;&#97;&#116;&#117;&#115;&#32;&#67;&#104;&#101;&#99;&#107;&#41;</h2>
 
           <ul class="api-detail-list">
             <li>
               <strong>Endpoint:</strong>
               <span class="api-badge">GET</span>
-              <code class="api-inline-code">/api/v1/jobs/{id}/download</code>
+              <code class="api-inline-code">/api/v1/jobs/{id}/status</code>
             </li>
 
             <li>
               <strong>Description:</strong>
-              &#52572;&#51333;&#32;&#54032;&#51221;&#32;&#47532;&#54252;&#53944;&#50752;&#32;&#48516;&#47448;&#46108;&#32;&#54028;&#51068;&#51012;&#32;&#45796;&#50868;&#47196;&#46300;&#54633;&#45768;&#45796;&#46;
+              &#48708;&#46041;&#44592;&#32;&#51089;&#50629;&#51032;&#32;&#54788;&#51116;&#32;&#51652;&#54665;&#47456;&#44284;&#32;&#49345;&#53468;&#47484;&#32;&#54869;&#51064;&#54633;&#45768;&#45796;&#46;
             </li>
 
             <li>
@@ -48,14 +48,16 @@
             </li>
           </ul>
 
-          <section class="code-card" aria-label="&#74;&#83;&#79;&#78;">
+          <section class="code-card" aria-label="Sample JSON">
             <div class="code-card-header">
               <span>JSON</span>
               <span>[ ]</span>
             </div>
             <pre class="code-block"><code>{
-  "report_url": "https://api.domain.com/static/report_1234.xlsx",
-  "zip_url": "https://api.domain.com/static/files_1234.zip"
+  "progress_percent": 75,
+  "status": "processing",
+  "total_files": 200,
+  "completed_files": 150
 }</code></pre>
           </section>
         </div>
@@ -63,3 +65,4 @@
     </main>
   </body>
 </html>
+
