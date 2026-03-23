@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GET /api/v1/jobs/{id}/status</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="Header">
+      <h1 class="site-title">DocumentAI docs</h1>
+    </header>
+    <main class="content-area" aria-label="API detail">
+      <aside class="side-nav" aria-label="Side navigation">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Getting Started</a></li>
+            <li><a class="active" href="api-reference.html">API Reference</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <section class="content-panel" aria-label="Main content">
+        <div class="content-inner">
+          <h2 class="api-detail-title">&#54;&#32;&#51089;&#50629;&#32;&#49345;&#53468;&#32;&#51312;&#54924;&#32;&#40;&#83;&#116;&#97;&#116;&#117;&#115;&#32;&#67;&#104;&#101;&#99;&#107;&#41;</h2>
+
+          <ul class="api-detail-list">
+            <li>
+              <strong>Endpoint:</strong>
+              <span class="api-badge">GET</span>
+              <code class="api-inline-code">/api/v1/jobs/{id}/status</code>
+            </li>
+
+            <li>
+              <strong>Description:</strong>
+              &#48708;&#46041;&#44592;&#32;&#51089;&#50629;&#51032;&#32;&#54788;&#51116;&#32;&#51652;&#54665;&#47456;&#44284;&#32;&#49345;&#53468;&#47484;&#32;&#54869;&#51064;&#54633;&#45768;&#45796;&#46;
+            </li>
+
+            <li>
+              <strong>Request:</strong>
+              <code class="api-inline-code">Path Parameter</code>
+              (<code class="api-inline-code">job_id</code>)
+            </li>
+
+            <li>
+              <strong>Response:</strong>
+              <code class="api-inline-code">application/json</code>
+            </li>
+          </ul>
+
+          <section class="code-card" aria-label="Sample JSON">
+            <div class="code-card-header">
+              <span>JSON</span>
+              <span>[ ]</span>
+            </div>
+            <pre class="code-block"><code>{
+  "progress_percent": 75,
+  "status": "processing",
+  "total_files": 200,
+  "completed_files": 150
+}</code></pre>
+          </section>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

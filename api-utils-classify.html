@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>POST /api/v1/utils/classify</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="Header">
+      <h1 class="site-title">DocumentAI docs</h1>
+    </header>
+
+    <main class="content-area" aria-label="API detail">
+      <aside class="side-nav" aria-label="Side navigation">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Getting Started</a></li>
+            <li><a class="active" href="api-reference.html">API Reference</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <section class="content-panel" aria-label="Main content">
+        <div class="content-inner">
+          <h2 class="api-detail-title">&#50;&#41;&#32;&#47928;&#49436;&#32;&#51088;&#46041;&#32;&#48516;&#47448;&#32;&#40;&#67;&#108;&#97;&#115;&#115;&#105;&#102;&#121;&#41;</h2>
+
+          <ul class="api-detail-list">
+            <li>
+              <strong>Endpoint:</strong>
+              <code class="api-inline-code">POST /api/v1/utils/classify</code>
+            </li>
+
+            <li>
+              <strong>Description:</strong>
+              &#50668;&#47084;&#32;&#54028;&#51068;&#51012;&#32;&#50629;&#47196;&#46300;&#54616;&#50668;&#32;&#50976;&#49324;&#46020;&#32;&#44592;&#48152;&#51004;&#47196;&#32;&#44536;&#47353;&#54868;&#40;&#67;&#108;&#117;&#115;&#116;&#101;&#114;&#105;&#110;&#103;&#41;&#32;&#54633;&#45768;&#45796;&#46;
+            </li>
+
+            <li>
+              <strong>Request:</strong>
+              <code class="api-inline-code">multipart/form-data</code>
+              <ul class="api-request-list">
+                <li>
+                  <code class="api-inline-code">files</code>
+                  : (List of Binaries) &#45796;&#51473;&#32;&#47928;&#49436;&#32;&#54028;&#51068;
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <strong>Response:</strong>
+              <code class="api-inline-code">application/json</code>
+            </li>
+          </ul>
+
+          <section class="code-card" aria-label="Sample JSON">
+            <div class="code-card-header">
+              <span>JSON</span>
+              <span>[ ]</span>
+            </div>
+            <pre class="code-block"><code>{
+  "job_id": "batch_unique_01",
+  "results": [
+    { "file_name": "doc_a.pdf", "cluster_id": "Category1", "confidence": 0.98 },
+    { "file_name": "doc_b.pdf", "cluster_id": "Category2", "confidence": 0.95 }
+  ]
+}</code></pre>
+          </section>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
+

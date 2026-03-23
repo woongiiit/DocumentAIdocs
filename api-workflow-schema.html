@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PUT /api/v1/workflow/schema</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="&#49345;&#45800;&#32;&#54756;&#45908;">
+      <h1 class="site-title">DocumentAI docs</h1>
+    </header>
+    <main class="content-area" aria-label="API detail">
+      <aside class="side-nav" aria-label="&#51340;&#52769;&#32;&#45348;&#48708;&#44172;&#51060;&#49496;">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Getting Started</a></li>
+            <li class="active" href="api-reference.html">API Reference</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <section class="content-panel" aria-label="&#48376;&#47928;&#32;&#50689;&#50669;">
+        <div class="content-inner">
+          <h2 class="api-detail-title">&#51;&#32;&#49828;&#53412;&#47560;&#32;&#49688;&#51221;&#32;&#48143;&#32;&#54869;&#51109; (Schema Update)</h2>
+          <ul class="api-detail-list">
+            <li>
+              <strong>Endpoint:</strong>
+              <span class="api-badge">PUT</span>
+              <code class="api-inline-code">/api/v1/workflow/schema/{schema_id}</code>
+            </li>
+
+            <li>
+              <strong>Description:</strong>
+              &#65;&#73;&#44032;&#52628;&#52636;&#54620;&#32;&#54596;&#46300;&#47749;&#51060;&#45208;&#32;&#45936;&#51060;&#53552;&#32;&#53440;&#51077;&#51012;&#32;&#49324;&#50857;&#51088;&#32;&#44368;&#51221;&#54633;&#45768;&#45796;&#46;
+            </li>
+
+            <li>
+              <strong>Request:</strong>
+              <code class="api-inline-code">application/json</code>
+            </li>
+          </ul>
+
+          <section class="code-card" aria-label="JSON">
+            <div class="code-card-header">
+              <span>JSON</span>
+              <span>[ ]</span>
+            </div>
+            <pre class="code-block"><code>{
+  "modified_elements": [
+    {
+      "original_attribute": "Total Score",
+      "new_attribute": "&#49457;&#51201;",
+      "type": "..."
+    }
+  ]
+}</code></pre>
+          </section>
+
+          <ul class="api-detail-list" style="padding-top: 14px;">
+            <li>
+              <strong>Response:</strong>
+              <code class="api-inline-code">{"status":"success","message":"Schema updated"}</code>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
