@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body>
-    <header class="site-header" aria-label="&#49345;&#45800; &#54756;&#45908;">
+    <header class="site-header" aria-label="상단 헤더">
       <h1 class="site-title">DocumentAI docs</h1>
     </header>
-    <main class="content-area" aria-label="API &#49345;&#49464;">
-      <aside class="side-nav" aria-label="&#51340;&#52769; &#45348;&#48708;&#44172;&#51060;&#49496;">
+    <main class="content-area" aria-label="API 상세">
+      <aside class="side-nav" aria-label="좌측 네비게이션">
         <nav>
           <ul class="nav-list">
             <li><a href="../index.html">Home</a></li>
@@ -20,9 +20,9 @@
           </ul>
         </nav>
       </aside>
-      <section class="content-panel" aria-label="&#48376;&#47928; &#50689;&#50669;">
+      <section class="content-panel" aria-label="본문 영역">
         <div class="content-inner">
-          <h2 class="api-detail-title">1) &#47928;&#49436; &#49828;&#53412;&#47560; &#52628;&#52636; (Extract)</h2>
+          <h2 class="api-detail-title">1) 문서 스키마 추출 (Extract)</h2>
           <ul class="api-detail-list">
             <li>
               <strong>Method:</strong>
@@ -34,7 +34,7 @@
             </li>
             <li>
               <strong>Description:</strong>
-              &#45800;&#51068; PDF/&#51060;&#48120;&#51648; &#54028;&#51068;&#50640;&#49436; &#53581;&#49828;&#53944; &#45936;&#51060;&#53552;&#50752; &#49884;&#44033;&#51201; &#50948;&#52824;(Bounding Box)&#47484; &#52628;&#52636;&#54633;&#45768;&#45796;.
+              단일 PDF/이미지 파일에서 텍스트 데이터와 시각적 위치(Bounding Box)를 추출합니다.
             </li>
             <li>
               <strong>Request:</strong>
@@ -42,14 +42,14 @@
               <ul class="api-request-list">
                 <li>
                   <code class="api-inline-code">file</code>
-                  : (Binary) PDF &#46608;&#45716; &#51060;&#48120;&#51648;
+                  : (Binary) PDF 또는 이미지
                 </li>
               </ul>
             </li>
             <li><strong>Sample Response:</strong></li>
           </ul>
 
-          <section class="code-card" aria-label="&#49368;&#54540; &#51025;&#45813; &#53076;&#46300;">
+          <section class="code-card" aria-label="샘플 응답 코드">
             <div class="code-card-header">
               <span>JSON</span>
               <span>[ ]</span>
@@ -57,7 +57,7 @@
             <pre class="code-block"><code>{
   "file_name": "pdf_file_name.pdf",
   "elements": [
-    { "attribute": "Name", "value": "&#51060;&#50857;&#55148;", "location": [100, 250, 80, 20] },
+    { "attribute": "Name", "value": "이용희", "location": [100, 250, 80, 20] },
     { "attribute": "Total Score", "value": "850", "location": [100, 200, 50, 20] }    
   ]
 }</code></pre>

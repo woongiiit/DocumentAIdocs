@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body>
-    <header class="site-header" aria-label="&#49345;&#45800;&#32;&#54756;&#45908;">
+    <header class="site-header" aria-label="상단 헤더">
       <h1 class="site-title">DocumentAI docs</h1>
     </header>
     <main class="content-area" aria-label="API detail">
-      <aside class="side-nav" aria-label="&#51340;&#52769;&#32;&#45348;&#48708;&#44172;&#51060;&#49496;">
+      <aside class="side-nav" aria-label="좌측 네비게이션">
         <nav>
           <ul class="nav-list">
             <li><a href="../index.html">Home</a></li>
@@ -20,9 +20,9 @@
           </ul>
         </nav>
       </aside>
-      <section class="content-panel" aria-label="&#48376;&#47928;&#32;&#50689;&#50669;">
+      <section class="content-panel" aria-label="본문 영역">
         <div class="content-inner">
-          <h2 class="api-detail-title">&#52;&#32;&#46972;&#48296;&#47553;&#32;&#48143;&#32;&#54032;&#51221;&#32;&#44508;&#52825;&#32;&#46321;&#47197; (Label &amp; Rule)</h2>
+          <h2 class="api-detail-title">4 라벨링 및 판정 규칙 등록 (Label &amp; Rule)</h2>
           <ul class="api-detail-list">
             <li>
               <strong>Endpoint:</strong>
@@ -32,7 +32,7 @@
 
             <li>
               <strong>Description:</strong>
-              &#53364;&#47084;&#49828;&#53552;&#50640;&#49436;&#32;&#49892;&#51228;&#32;&#47749;&#52845;&#51012;&#32;&#48512;&#50668;&#54616;&#44256;&#32;&#51088;&#50672;&#50612;&#32;&#54032;&#51221;&#32;&#44508;&#52825;&#51012;&#32;&#46321;&#47197;&#54633;&#45768;&#45796;&#46;
+              클러스터에서 실제 명칭을 부여하고 자연어 판정 규칙을 등록합니다.
             </li>
 
             <li>
@@ -41,22 +41,22 @@
             </li>
           </ul>
 
-          <section class="code-card" aria-label="&#50836;&#52397;&#32;&#74;&#83;&#79;&#78;">
+          <section class="code-card" aria-label="요청 JSON">
             <div class="code-card-header">
               <span>JSON</span>
               <span>[ ]</span>
             </div>
             <pre class="code-block"><code>{
   "cluster_id": "Category1",
-  "label_name": "&#53664;&#51061;&#49457;&#32;&#51216;&#54364;",
-  "rule_prompt": "&#51216;&#49688;&#44032;&#55;&#48;&#48;&#51216;&#32;&#51060;&#49345;&#51060;&#47732;&#32;&#39;&#80;&#65;&#83;&#83;&#39;&#44;&#32;&#50500;&#45768;&#47732;&#32;&#39;&#70;&#65;&#73;&#76;&#39;&#47196;&#32;&#54032;&#51221;&#54644;:"
+  "label_name": "토익성 점표",
+  "rule_prompt": "점수가700점 이상이면 'PASS', 아니면 'FAIL'로 판정해:"
 }</code></pre>
           </section>
 
           <ul class="api-detail-list" style="padding-top: 14px;">
             <li>
               <strong>Response:</strong>
-              <code class="api-inline-code">{"workflow_id":"wf_2026_01","assigned_label":"&#53664;&#51061;&#49457;&#32;&#51216;&#54364;"}</code>
+              <code class="api-inline-code">{"workflow_id":"wf_2026_01","assigned_label":"토익성 점표"}</code>
             </li>
           </ul>
         </div>
