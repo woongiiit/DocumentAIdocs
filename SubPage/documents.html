@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documents</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      .documents-title {
+        margin: 0 0 14px;
+        font-size: 30px;
+        color: #1f2937;
+      }
+
+      .documents-desc {
+        margin: 0 0 16px;
+        font-size: 15px;
+        color: #4b5563;
+      }
+
+      .documents-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+      }
+
+      .documents-table th,
+      .documents-table td {
+        padding: 12px 14px;
+        border-bottom: 1px solid #e5e7eb;
+        text-align: left;
+        font-size: 14px;
+        color: #111827;
+      }
+
+      .documents-table th:last-child,
+      .documents-table td:last-child {
+        width: 86px;
+        text-align: center;
+      }
+
+      .download-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        border: 1px solid #d1d5db;
+        color: #111827;
+        text-decoration: none;
+        background: #f9fafb;
+      }
+
+      .download-link:hover {
+        background: #f3f4f6;
+      }
+
+      .documents-empty {
+        padding: 18px 14px;
+        border: 1px solid #e5e7eb;
+        background: #ffffff;
+        font-size: 14px;
+        color: #6b7280;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header" aria-label="상단 헤더">
+      <h1 class="site-title">DocumentAI docs</h1>
+    </header>
+    <main class="content-area" aria-label="문서 화면">
+      <aside class="side-nav" aria-label="좌측 네비게이션">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="#">Getting Started</a></li>
+            <li><a href="api-reference.html">API Reference</a></li>
+            <li><a class="active" href="documents.html">Documents</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <section class="content-panel" aria-label="본문 영역">
+        <div class="content-inner">
+          <h2 class="documents-title">Documents</h2>
+          <p class="documents-desc">
+            문서 파일 목록입니다. 다운로드 아이콘을 클릭하면 파일을 내려받을 수 있습니다.
+          </p>
+          <div id="documents-root" aria-live="polite"></div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      async function loadDocuments() {
+        const root = document.getElementById("documents-root");
+
+        try {
+          const response = await fetch("../documents/index.json", { cache: "no-store" });
+          if (!response.ok) {
+            throw new Error("Failed to load index.json");
+          }
+
+          const files = await response.json();
+          if (!Array.isArray(files) || files.length === 0) {
+            root.innerHTML = '<div class="documents-empty">등록된 문서가 없습니다.</div>';
+            return;
+          }
+
+          const rows = files
+            .map((file) => {
+              const fileName = typeof file === "string" ? file : file.name;
+              const filePath = typeof file === "string" ? file : file.path;
+              if (!fileName || !filePath) {
+                return "";
+              }
+
+              const safeName = escapeHtml(fileName);
+              const encodedPath = encodeURI(filePath);
+              return (
+                "<tr>" +
+                "<td>" +
+                safeName +
+                "</td>" +
+                '<td><a class="download-link" href="../documents/' +
+                encodedPath +
+                '" download aria-label="' +
+                safeName +
+                ' 다운로드" title="다운로드">&#8681;</a></td>' +
+                "</tr>"
+              );
+            })
+            .join("");
+
+          if (!rows.trim()) {
+            root.innerHTML = '<div class="documents-empty">등록된 문서가 없습니다.</div>';
+            return;
+          }
+
+          root.innerHTML =
+            '<table class="documents-table">' +
+            "<thead><tr><th>파일명</th><th>다운로드</th></tr></thead>" +
+            "<tbody>" +
+            rows +
+            "</tbody></table>";
+        } catch (error) {
+          root.innerHTML =
+            '<div class="documents-empty">문서 목록을 불러오지 못했습니다. `documents/index.json` 파일을 확인해주세요.</div>';
+        }
+      }
+
+      function escapeHtml(value) {
+        return String(value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
+
+      loadDocuments();
+    </script>
+  </body>
+</html>
