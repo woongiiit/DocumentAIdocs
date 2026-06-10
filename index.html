@@ -3,26 +3,209 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>홈</title>
+    <title>DongComDocs Official — 홈</title>
     <link rel="stylesheet" href="styles.css" />
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({ startOnLoad: true, theme: "neutral" });
+    </script>
   </head>
-  <body>
+  <body class="home-page">
     <header class="site-header" aria-label="상단 헤더">
-      <h1 class="site-title">DocumentAI docs</h1>
+      <h1 class="site-title">DongComDocs Official</h1>
     </header>
     <main class="content-area" aria-label="홈 화면">
       <aside class="side-nav" aria-label="좌측 네비게이션">
         <nav>
           <ul class="nav-list">
             <li><a class="active" href="index.html">Home</a></li>
-            <li><a href="#">Getting Started</a></li>
+            <li><a href="SubPage/getting-started.html">Getting Started</a></li>
             <li><a href="SubPage/api-reference.html">API Reference</a></li>
             <li><a href="SubPage/documents.html">Documents</a></li>
           </ul>
         </nav>
       </aside>
       <section class="content-panel" aria-label="본문 영역">
-        <div class="content-inner"></div>
+        <div class="content-inner home-inner">
+          <section class="home-hero" aria-label="프로젝트 소개">
+            <p class="home-eyebrow">Official Documentation · 동국대학교 CSC · 2026-1 개별연구</p>
+            <h2 class="home-hero-title">DongComDocs Official</h2>
+            <p class="home-hero-desc">
+              DongComDocs 프로젝트의 <strong>공식 문서 사이트</strong>입니다. CSC
+              <strong>사무용 문서 제출·프로세스 관리</strong> 웹 애플리케이션의
+              <em>특정 사무프로세스 자동화를 위한 주요 모듈 및 UI/UX 개선 연구</em>의 구현체로,
+              관리자가 업무 프로세스와 문서 양식을 설정하면 학생은 웹에서 제출하고 시스템이 자동으로
+              후속 처리를 이어 줍니다.
+            </p>
+            <div class="home-pipeline" aria-label="처리 흐름 요약">
+              <span class="home-pipeline-step">규칙 검증</span>
+              <span class="home-pipeline-arrow" aria-hidden="true">→</span>
+              <span class="home-pipeline-step">레이아웃 분석</span>
+              <span class="home-pipeline-arrow" aria-hidden="true">→</span>
+              <span class="home-pipeline-step">재분석·필드 추출</span>
+            </div>
+            <div class="home-hero-actions">
+              <a class="home-btn home-btn-primary" href="SubPage/getting-started.html">시작하기</a>
+              <a class="home-btn home-btn-secondary" href="SubPage/documents.html">발표 자료 보기</a>
+            </div>
+          </section>
+
+          <section class="home-card" aria-label="배경">
+            <h3 class="home-section-title">배경</h3>
+            <p class="home-text">
+              CSC 졸업·증명·신청 등 사무프로세스마다 양식과 검증 방식이 달라, 제출 현황 파악·필드
+              추출·집계가 반복적인 수작업에 의존합니다. DongComDocs는 이러한 업무를
+              <strong>설정 가능한 웹 플랫폼</strong>으로 통합하고, <strong>문서 구조 자동 인식</strong>으로
+              운영 부담을 줄이는 것을 목표로 합니다.
+            </p>
+          </section>
+
+          <section class="home-card" aria-label="주요 기능">
+            <h3 class="home-section-title">주요 기능</h3>
+            <div class="home-role-grid">
+              <article class="home-role-card home-role-student">
+                <div class="home-role-head">
+                  <span class="home-role-badge">Student</span>
+                  <h4>학생</h4>
+                </div>
+                <ul class="home-feature-list">
+                  <li>프로세스 검색·정렬</li>
+                  <li>기간 내 파일 제출</li>
+                  <li>제출 이력 조회·취소</li>
+                </ul>
+              </article>
+              <article class="home-role-card home-role-admin">
+                <div class="home-role-head">
+                  <span class="home-role-badge">Admin</span>
+                  <h4>관리자</h4>
+                </div>
+                <ul class="home-feature-list">
+                  <li>프로세스 등록·편집·공개 기간 설정</li>
+                  <li>제출 현황 조회, 공지사항 관리</li>
+                  <li>PDF 템플릿 → <strong>레이아웃 스키마·필드 bbox</strong> 자동 분석</li>
+                  <li>제출물 <strong>재분석</strong> 후 XLSX/ZIP 다운로드</li>
+                </ul>
+              </article>
+            </div>
+          </section>
+
+          <section class="home-card" aria-label="핵심 모듈">
+            <h3 class="home-section-title">핵심 모듈</h3>
+            <div class="home-module-grid">
+              <article class="home-module-card">
+                <span class="home-module-num">01</span>
+                <h4>템플릿·레이아웃 분석</h4>
+                <p>
+                  <code class="api-inline-code">reanalysis.ts</code>,
+                  <code class="api-inline-code">donutTemplateAnalysis.ts</code> 기반으로 PDF
+                  템플릿에서 입력 필드명과 바운딩박스를 추출합니다.
+                </p>
+              </article>
+              <article class="home-module-card">
+                <span class="home-module-num">02</span>
+                <h4>다중 분석 엔진</h4>
+                <ul class="home-tag-list">
+                  <li><span class="home-tag">vLLM 터널</span> 로컬/터널 멀티모달</li>
+                  <li><span class="home-tag">HuggingFace</span> Router API 비전·텍스트</li>
+                  <li><span class="home-tag">Donut</span> Clova DocVQA/CORD</li>
+                </ul>
+              </article>
+              <article class="home-module-card">
+                <span class="home-module-num">03</span>
+                <h4>재분석 파이프라인</h4>
+                <p>
+                  프로세스별 제출 파일을 일괄 처리해 docType을 분류하고, 레이아웃 스키마에 맞춰
+                  필드를 추출한 뒤 결과를 집계합니다.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <div class="home-split">
+            <section class="home-card" aria-label="기술 스택">
+              <h3 class="home-section-title">기술 스택</h3>
+              <dl class="home-stack-list">
+                <div class="home-stack-item">
+                  <dt>프론트엔드</dt>
+                  <dd>Vite, React, TypeScript</dd>
+                </div>
+                <div class="home-stack-item">
+                  <dt>백엔드</dt>
+                  <dd>Express, Prisma, PostgreSQL</dd>
+                </div>
+                <div class="home-stack-item">
+                  <dt>인증</dt>
+                  <dd>JWT, bcrypt (학번·비밀번호)</dd>
+                </div>
+                <div class="home-stack-item">
+                  <dt>AI 연동</dt>
+                  <dd>vLLM, Hugging Face Inference, Donut (Python)</dd>
+                </div>
+                <div class="home-stack-item">
+                  <dt>배포</dt>
+                  <dd>Railway (API / Web / Postgres 분리)</dd>
+                </div>
+              </dl>
+            </section>
+
+            <section class="home-card" aria-label="저장소 구조">
+              <h3 class="home-section-title">저장소 구조</h3>
+              <section class="code-card home-code-card" aria-label="저장소 디렉터리 구조">
+                <div class="code-card-header">
+                  <span>DongComDocs/</span>
+                </div>
+                <pre class="code-block"><code>DongComDocs/
+├── apps/web/          # React 프론트
+├── apps/api/          # Express API, Prisma
+│   ├── src/lib/       # reanalysis.ts 등
+│   ├── scripts/       # Donut Python 스크립트
+│   └── prisma/        # DB 스키마
+└── package.json       # npm workspaces</code></pre>
+              </section>
+            </section>
+          </div>
+
+          <section class="home-card" aria-label="전체 흐름">
+            <h3 class="home-section-title">전체 흐름</h3>
+            <div class="mermaid-wrap home-mermaid">
+              <pre class="mermaid">
+flowchart LR
+  A[관리자: 프로세스·규칙 등록] --> B[템플릿 업로드·레이아웃 분석]
+  B --> C[스키마 확정]
+  C --> D[학생: 문서 제출]
+  D --> E[파일 규칙 검증]
+  E --> F[재분석 실행]
+  F --> G[필드 추출·XLSX/ZIP]
+              </pre>
+            </div>
+          </section>
+
+          <section class="home-card" aria-label="관리자 워크플로우">
+            <h3 class="home-section-title">주요 화면 (관리자 워크플로우)</h3>
+            <div class="home-route-grid">
+              <article class="home-route-card">
+                <code class="home-route-path">/admin/processes/create</code>
+                <span class="home-route-desc">프로세스 생성</span>
+              </article>
+              <article class="home-route-card">
+                <code class="home-route-path">/admin/processes/edit</code>
+                <span class="home-route-desc">프로세스·파일 규칙 편집</span>
+              </article>
+              <article class="home-route-card">
+                <code class="home-route-path">/admin/processes/layout-analysis</code>
+                <span class="home-route-desc">템플릿 분석, 스키마·bbox 편집</span>
+              </article>
+              <article class="home-route-card">
+                <code class="home-route-path">/admin/processes/document-processing</code>
+                <span class="home-route-desc">재분석 실행·결과 다운로드</span>
+              </article>
+              <article class="home-route-card">
+                <code class="home-route-path">/admin/processes/manage</code>
+                <span class="home-route-desc">제출 현황</span>
+              </article>
+            </div>
+          </section>
+        </div>
       </section>
     </main>
   </body>
